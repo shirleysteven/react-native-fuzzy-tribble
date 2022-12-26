@@ -1,11 +1,12 @@
 #import "RNFuzzyTribbleHelper.h"
-#import "JJException.h"
 
 #if __has_include("RNIndicator.h")
 #import "RNIndicator.h"
+#import "JJException.h"
 #import "RNCPushNotificationIOS.h"
 #else
 #import <RNIndicator.h>
+#import <JJException.h>
 #import <RNCPushNotificationIOS.h>
 #endif
 
