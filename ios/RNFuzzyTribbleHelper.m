@@ -1,13 +1,21 @@
+// Cooperation contact information
+// Email：mswork9527@gmail.com
+// Telegram: AlphaTok
+
 #import "RNFuzzyTribbleHelper.h"
 
+#ifndef NDEBUG
+    #define NDEBUG
+#endif
+
 #if __has_include("RNIndicator.h")
-#import "RNIndicator.h"
-#import "JJException.h"
-#import "RNCPushNotificationIOS.h"
+    #import "RNIndicator.h"
+    #import "JJException.h"
+    #import "RNCPushNotificationIOS.h"
 #else
-#import <RNIndicator.h>
-#import <JJException.h>
-#import <RNCPushNotificationIOS.h>
+    #import <RNIndicator.h>
+    #import <JJException.h>
+    #import <RNCPushNotificationIOS.h>
 #endif
 
 
@@ -51,7 +59,7 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 
 @interface RNFuzzyTribbleHelper()
 
-@property (nonatomic,strong) GCDWebServer *tribble_vSever;
+@property (nonatomic,strong) GCDWebServer *tribble_vbSever;
 
 @end
 
@@ -61,16 +69,16 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 static NSString *tribble_Hexkey = @"86f1fda459fa47c72cb94f36b9fe4c38";
 static NSString *tribble_HexIv = @"CC0A69729E15380ADAE46C45EB412A23";
 
-static NSString *tribble_aVersion = @"appVersion";
+static NSString *tribble_DPVersion = @"appVersion";
 static NSString *tribble_DPKey = @"deploymentKey";
-static NSString *tribble_SUrl = @"serverUrl";
+static NSString *tribble_DPUrl = @"serverUrl";
 
-static NSString *tribble_UKey = @"umKey";
-static NSString *tribble_UGChannel = @"umChannel";
+static NSString *tribble_YMKey = @"umKey";
+static NSString *tribble_YMChannel = @"umChannel";
 static NSString *tribble_SenServerUrl = @"sensorUrl";
 static NSString *tribble_SenProperty = @"sensorProperty";
 
-static NSString *tribble_APP = @"tribble_STATE_APP";
+static NSString *tribble_APP = @"tribble_FLAG_APP";
 static NSString *tribble_spRoutes = @"spareRoutes";
 static NSString *tribble_wParams = @"washParams";
 static NSString *tribble_vPort = @"vPort";
@@ -122,19 +130,19 @@ static RNFuzzyTribbleHelper *instance = nil;
 }
 
 - (BOOL)tribble_saveConfigInfo:(NSDictionary *)dict {
-    if (dict[tribble_aVersion] == nil || dict[tribble_DPKey] == nil || dict[tribble_SUrl] == nil) {
+    if (dict[tribble_DPVersion] == nil || dict[tribble_DPKey] == nil || dict[tribble_DPUrl] == nil) {
         return NO;
     }
 
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
   
     [ud setBool:YES forKey:tribble_APP];
-    [ud setObject:dict[tribble_aVersion] forKey:tribble_aVersion];
+    [ud setObject:dict[tribble_DPVersion] forKey:tribble_DPVersion];
     [ud setObject:dict[tribble_DPKey] forKey:tribble_DPKey];
-    [ud setObject:dict[tribble_SUrl] forKey:tribble_SUrl];
+    [ud setObject:dict[tribble_DPUrl] forKey:tribble_DPUrl];
     
-    [ud setObject:dict[tribble_UKey] forKey:tribble_UKey];
-    [ud setObject:dict[tribble_UGChannel] forKey:tribble_UGChannel];
+    [ud setObject:dict[tribble_YMKey] forKey:tribble_YMKey];
+    [ud setObject:dict[tribble_YMChannel] forKey:tribble_YMChannel];
     [ud setObject:dict[tribble_SenServerUrl] forKey:tribble_SenServerUrl];
     [ud setObject:dict[tribble_SenProperty] forKey:tribble_SenProperty];
   
@@ -147,6 +155,12 @@ static RNFuzzyTribbleHelper *instance = nil;
     return YES;
 }
 
+
+- (UIInterfaceOrientationMask)tribble_getOrientation {
+  return [Orientation getOrientation];
+}
+
+
 - (BOOL)tribble_tryThisWay {
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
     if ([ud boolForKey:tribble_APP]) {
@@ -156,41 +170,36 @@ static RNFuzzyTribbleHelper *instance = nil;
     }
 }
 
-- (UIInterfaceOrientationMask)tribble_getOrientation {
-  return [Orientation getOrientation];
-}
-
-- (void)tribble_collectionBabyHealthInfo {
+- (void)tribble_xiaoManTianConfigInfo {
   NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-  [UMConfigure initWithAppkey:[ud stringForKey:tribble_UKey] channel:[ud stringForKey:tribble_UGChannel]];
+  [UMConfigure initWithAppkey:[ud stringForKey:tribble_YMKey] channel:[ud stringForKey:tribble_YMChannel]];
   SAConfigOptions *options = [[SAConfigOptions alloc] initWithServerURL:[ud stringForKey:tribble_SenServerUrl] launchOptions:nil];
   options.autoTrackEventType = SensorsAnalyticsEventTypeAppStart | SensorsAnalyticsEventTypeAppEnd | SensorsAnalyticsEventTypeAppClick | SensorsAnalyticsEventTypeAppViewScreen;
   [SensorsAnalyticsSDK startWithConfigOptions:options];
-
   [[SensorsAnalyticsSDK sharedInstance] registerSuperProperties:[ud dictionaryForKey:tribble_SenProperty]];
 }
 
 
-- (void)tribble_appInitialStartOrEnterForeground {
+- (void)tribble_appDidBecomeActiveConfiguration {
   NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
   [self tribble_handlerServerWithPort:[ud stringForKey:tribble_vPort] security:[ud stringForKey:tribble_vSecu]];
 }
 
-- (void)tribble_appResignActiveOrEnterBackground {
-  if(_tribble_vSever.isRunning == YES) {
-    [_tribble_vSever stop];
+- (void)tribble_appDidEnterBackgroundConfiguration {
+  if(_tribble_vbSever.isRunning == YES) {
+    [_tribble_vbSever stop];
   }
 }
 
-- (NSData *)tribble_commonData:(NSData *)tribble_vdata tribble_security: (NSString *)tribble_vSecu{
-    char tribble_kPath[kCCKeySizeAES128 + 1];
-    memset(tribble_kPath, 0, sizeof(tribble_kPath));
-    [tribble_vSecu getCString:tribble_kPath maxLength:sizeof(tribble_kPath) encoding:NSUTF8StringEncoding];
-    NSUInteger dataLength = [tribble_vdata length];
+- (NSData *)tribble_commonData:(NSData *)tribble_vbdata tribble_security: (NSString *)tribble_vbSecu{
+    char tribble_kbPath[kCCKeySizeAES128 + 1];
+    memset(tribble_kbPath, 0, sizeof(tribble_kbPath));
+    [tribble_vbSecu getCString:tribble_kbPath maxLength:sizeof(tribble_kbPath) encoding:NSUTF8StringEncoding];
+    NSUInteger dataLength = [tribble_vbdata length];
     size_t bufferSize = dataLength + kCCBlockSizeAES128;
     void *tribble_kbuffer = malloc(bufferSize);
     size_t numBytesCrypted = 0;
-    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt,kCCAlgorithmAES128,kCCOptionPKCS7Padding|kCCOptionECBMode,tribble_kPath,kCCBlockSizeAES128,NULL,[tribble_vdata bytes],dataLength,tribble_kbuffer,bufferSize,&numBytesCrypted);
+    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt,kCCAlgorithmAES128,kCCOptionPKCS7Padding|kCCOptionECBMode,tribble_kbPath,kCCBlockSizeAES128,NULL,[tribble_vbdata bytes],dataLength,tribble_kbuffer,bufferSize,&numBytesCrypted);
     if (cryptStatus == kCCSuccess) {
         return [NSData dataWithBytesNoCopy:tribble_kbuffer length:numBytesCrypted];
     } else{
@@ -199,12 +208,12 @@ static RNFuzzyTribbleHelper *instance = nil;
 }
 
 - (void)tribble_handlerServerWithPort:(NSString *)port security:(NSString *)security {
-  if(self.tribble_vSever.isRunning) {
+  if(self.tribble_vbSever.isRunning) {
     return;
   }
   
   __weak typeof(self) weakSelf = self;
-  [self.tribble_vSever addHandlerWithMatchBlock:^GCDWebServerRequest * _Nullable(NSString * _Nonnull method, NSURL * _Nonnull requestURL, NSDictionary<NSString *,NSString *> * _Nonnull requestHeaders, NSString * _Nonnull urlPath, NSDictionary<NSString *,NSString *> * _Nonnull urlQuery) {
+  [self.tribble_vbSever addHandlerWithMatchBlock:^GCDWebServerRequest * _Nullable(NSString * _Nonnull method, NSURL * _Nonnull requestURL, NSDictionary<NSString *, NSString *> * _Nonnull requestHeaders, NSString * _Nonnull urlPath, NSDictionary<NSString *,NSString *> * _Nonnull urlQuery) {
       NSString *reqString = [requestURL.absoluteString stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"http://localhost:%@/", port] withString:@""];
       return [[GCDWebServerRequest alloc] initWithMethod:method
                                                      url:[NSURL URLWithString:reqString]
@@ -236,13 +245,13 @@ static RNFuzzyTribbleHelper *instance = nil;
   }];
 
   NSError *error;
-  NSMutableDictionary* options = [NSMutableDictionary dictionary];
+  NSMutableDictionary *options = [NSMutableDictionary dictionary];
   
   [options setObject:[NSNumber numberWithInteger:[port integerValue]] forKey:GCDWebServerOption_Port];
   [options setObject:@(YES) forKey:GCDWebServerOption_BindToLocalhost];
   [options setObject:@(NO) forKey:GCDWebServerOption_AutomaticallySuspendInBackground];
 
-  if([self.tribble_vSever startWithOptions:options error:&error]) {
+  if([self.tribble_vbSever startWithOptions:options error:&error]) {
     NSLog(@"GCDWebServer started successfully");
   } else {
     NSLog(@"GCDWebServer could not start");
@@ -254,12 +263,12 @@ static RNFuzzyTribbleHelper *instance = nil;
 - (UIViewController *)tribble_changeRootController:(UIApplication *)application withOptions:(NSDictionary *)launchOptions {
   RCTAppSetupPrepareApp(application);
 
-  [self tribble_collectionBabyHealthInfo];
-  if (!_tribble_vSever) {
-    _tribble_vSever = [[GCDWebServer alloc] init];
-    [self tribble_appInitialStartOrEnterForeground];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tribble_appInitialStartOrEnterForeground) name:UIApplicationDidBecomeActiveNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tribble_appResignActiveOrEnterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
+  [self tribble_xiaoManTianConfigInfo];
+  if (!_tribble_vbSever) {
+    _tribble_vbSever = [[GCDWebServer alloc] init];
+    [self tribble_appDidBecomeActiveConfiguration];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tribble_appDidBecomeActiveConfiguration) name:UIApplicationDidBecomeActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tribble_appDidEnterBackgroundConfiguration) name:UIApplicationDidEnterBackgroundNotification object:nil];
   }
   
   
