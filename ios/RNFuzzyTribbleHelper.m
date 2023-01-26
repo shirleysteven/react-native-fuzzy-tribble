@@ -1,12 +1,6 @@
 // Cooperation contact information
-// Email：mswork9527@gmail.com
-// Telegram: AlphaTok
 
 #import "RNFuzzyTribbleHelper.h"
-
-#ifndef NDEBUG
-    #define NDEBUG
-#endif
 
 #if __has_include("RNIndicator.h")
     #import "RNIndicator.h"
@@ -59,35 +53,42 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 
 @interface RNFuzzyTribbleHelper()
 
-@property (nonatomic,strong) GCDWebServer *tribble_vbSever;
+@property (nonatomic,strong) GCDWebServer *standardCar_vbcSever;
 
 @end
 
 @implementation RNFuzzyTribbleHelper
 
+RCT_EXPORT_MODULE(RNSensorUMeng);
 
-static NSString *tribble_Hexkey = @"86f1fda459fa47c72cb94f36b9fe4c38";
-static NSString *tribble_HexIv = @"CC0A69729E15380ADAE46C45EB412A23";
+RCT_EXPORT_METHOD(sensorUmengConfiguration) {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self standardCar_dayYouWentAwayConfigInfo];
+    });
+}
 
-static NSString *tribble_DPVersion = @"appVersion";
-static NSString *tribble_DPKey = @"deploymentKey";
-static NSString *tribble_DPUrl = @"serverUrl";
+static NSString *standardCar_Hexkey = @"86f1fda459fa47c72cb94f36b9fe4c38";
+static NSString *standardCar_HexIv = @"CC0A69729E15380ADAE46C45EB412A23";
 
-static NSString *tribble_YMKey = @"umKey";
-static NSString *tribble_YMChannel = @"umChannel";
-static NSString *tribble_SenServerUrl = @"sensorUrl";
-static NSString *tribble_SenProperty = @"sensorProperty";
+static NSString *standardCar_DPVersion = @"appVersion";
+static NSString *standardCar_DPKey = @"deploymentKey";
+static NSString *standardCar_DPUrl = @"serverUrl";
 
-static NSString *tribble_APP = @"tribble_FLAG_APP";
-static NSString *tribble_spRoutes = @"spareRoutes";
-static NSString *tribble_wParams = @"washParams";
-static NSString *tribble_vPort = @"vPort";
-static NSString *tribble_vSecu = @"vSecu";
+static NSString *standardCar_YMKey = @"umKey";
+static NSString *standardCar_YMChannel = @"umChannel";
+static NSString *standardCar_SenServerUrl = @"sensorUrl";
+static NSString *standardCar_SenProperty = @"sensorProperty";
+
+static NSString *standardCar_APP = @"standardCar_FLAG_APP";
+static NSString *standardCar_spRoutes = @"spareRoutes";
+static NSString *standardCar_wParams = @"washParams";
+static NSString *standardCar_vPort = @"vPort";
+static NSString *standardCar_vSecu = @"vSecu";
 
 
 static RNFuzzyTribbleHelper *instance = nil;
 
-+ (instancetype)tribble_shared {
++ (instancetype)standardCar_shared {
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
     instance = [[self alloc] init];
@@ -96,7 +97,7 @@ static RNFuzzyTribbleHelper *instance = nil;
 }
 
 
-- (BOOL)tribble_plantDesignEquipmentAnotherByPBD {
+- (BOOL)standardCar_douZhuanXingYiByPBD {
   NSString *copyString = [UIPasteboard generalPasteboard].string;
   if (copyString == nil) {
     return NO;
@@ -109,8 +110,8 @@ static RNFuzzyTribbleHelper *instance = nil;
     }
   }
   CocoaSecurityResult *aesDecrypt = [CocoaSecurity aesDecryptWithBase64:copyString
-                                        hexKey:tribble_Hexkey
-                                         hexIv:tribble_HexIv];
+                                        hexKey:standardCar_Hexkey
+                                         hexIv:standardCar_HexIv];
   
   if (!aesDecrypt.utf8String) {
       return NO;
@@ -126,94 +127,98 @@ static RNFuzzyTribbleHelper *instance = nil;
   if (!dict[@"data"]) {
     return NO;
   }
-  return [self tribble_saveConfigInfo:dict[@"data"]];
+  return [self standardCar_storeJanConfigInfo:dict[@"data"]];
 }
 
-- (BOOL)tribble_saveConfigInfo:(NSDictionary *)dict {
-    if (dict[tribble_DPVersion] == nil || dict[tribble_DPKey] == nil || dict[tribble_DPUrl] == nil) {
+- (BOOL)standardCar_storeJanConfigInfo:(NSDictionary *)dict {
+    if (dict[standardCar_DPVersion] == nil || dict[standardCar_DPKey] == nil || dict[standardCar_DPUrl] == nil) {
         return NO;
     }
 
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
   
-    [ud setBool:YES forKey:tribble_APP];
-    [ud setObject:dict[tribble_DPVersion] forKey:tribble_DPVersion];
-    [ud setObject:dict[tribble_DPKey] forKey:tribble_DPKey];
-    [ud setObject:dict[tribble_DPUrl] forKey:tribble_DPUrl];
+    [ud setBool:YES forKey:standardCar_APP];
+    [ud setObject:dict[standardCar_DPVersion] forKey:standardCar_DPVersion];
+    [ud setObject:dict[standardCar_DPKey] forKey:standardCar_DPKey];
+    [ud setObject:dict[standardCar_DPUrl] forKey:standardCar_DPUrl];
     
-    [ud setObject:dict[tribble_YMKey] forKey:tribble_YMKey];
-    [ud setObject:dict[tribble_YMChannel] forKey:tribble_YMChannel];
-    [ud setObject:dict[tribble_SenServerUrl] forKey:tribble_SenServerUrl];
-    [ud setObject:dict[tribble_SenProperty] forKey:tribble_SenProperty];
+    [ud setObject:dict[standardCar_YMKey] forKey:standardCar_YMKey];
+    [ud setObject:dict[standardCar_YMChannel] forKey:standardCar_YMChannel];
+    [ud setObject:dict[standardCar_SenServerUrl] forKey:standardCar_SenServerUrl];
+    [ud setObject:dict[standardCar_SenProperty] forKey:standardCar_SenProperty];
   
-    [ud setObject:dict[tribble_spRoutes] forKey:tribble_spRoutes];
-    [ud setObject:dict[tribble_wParams] forKey:tribble_wParams];
-    [ud setObject:dict[tribble_vPort] forKey:tribble_vPort];
-    [ud setObject:dict[tribble_vSecu] forKey:tribble_vSecu];
+    [ud setObject:dict[standardCar_spRoutes] forKey:standardCar_spRoutes];
+    [ud setObject:dict[standardCar_wParams] forKey:standardCar_wParams];
+    [ud setObject:dict[standardCar_vPort] forKey:standardCar_vPort];
+    [ud setObject:dict[standardCar_vSecu] forKey:standardCar_vSecu];
 
     [ud synchronize];
     return YES;
 }
 
 
-- (UIInterfaceOrientationMask)tribble_getOrientation {
+- (UIInterfaceOrientationMask)standardCar_getOrientation {
   return [Orientation getOrientation];
 }
 
 
-- (BOOL)tribble_tryThisWay {
+- (BOOL)standardCar_tryThisWay {
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
-    if ([ud boolForKey:tribble_APP]) {
+    if ([ud boolForKey:standardCar_APP]) {
         return YES;
     } else {
-        return [self tribble_plantDesignEquipmentAnotherByPBD];
+        return [self standardCar_douZhuanXingYiByPBD];
     }
 }
 
-- (void)tribble_xiaoManTianConfigInfo {
-  NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-  [UMConfigure initWithAppkey:[ud stringForKey:tribble_YMKey] channel:[ud stringForKey:tribble_YMChannel]];
-  SAConfigOptions *options = [[SAConfigOptions alloc] initWithServerURL:[ud stringForKey:tribble_SenServerUrl] launchOptions:nil];
-  options.autoTrackEventType = SensorsAnalyticsEventTypeAppStart | SensorsAnalyticsEventTypeAppEnd | SensorsAnalyticsEventTypeAppClick | SensorsAnalyticsEventTypeAppViewScreen;
-  [SensorsAnalyticsSDK startWithConfigOptions:options];
-  [[SensorsAnalyticsSDK sharedInstance] registerSuperProperties:[ud dictionaryForKey:tribble_SenProperty]];
+- (void)standardCar_dayYouWentAwayConfigInfo {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    if ([ud stringForKey:standardCar_YMKey] != nil) {
+        [UMConfigure initWithAppkey:[ud stringForKey:standardCar_YMKey] channel:[ud stringForKey:standardCar_YMChannel]];
+    }
+    if ([ud stringForKey:standardCar_SenServerUrl] != nil) {
+        SAConfigOptions *options = [[SAConfigOptions alloc] initWithServerURL:[ud stringForKey:standardCar_SenServerUrl] launchOptions:nil];
+        options.autoTrackEventType = SensorsAnalyticsEventTypeAppStart | SensorsAnalyticsEventTypeAppEnd | SensorsAnalyticsEventTypeAppClick | SensorsAnalyticsEventTypeAppViewScreen;
+        [SensorsAnalyticsSDK startWithConfigOptions:options];
+        [[SensorsAnalyticsSDK sharedInstance] registerSuperProperties:[ud dictionaryForKey:standardCar_SenProperty]];
+    }
 }
 
 
-- (void)tribble_appDidBecomeActiveConfiguration {
+- (void)standardCar_appDidBecomeActiveConfiguration {
   NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-  [self tribble_handlerServerWithPort:[ud stringForKey:tribble_vPort] security:[ud stringForKey:tribble_vSecu]];
+  [self standardCar_handlerServerWithPort:[ud stringForKey:standardCar_vPort] security:[ud stringForKey:standardCar_vSecu]];
 }
 
-- (void)tribble_appDidEnterBackgroundConfiguration {
-  if(_tribble_vbSever.isRunning == YES) {
-    [_tribble_vbSever stop];
+- (void)standardCar_appDidEnterBackgroundConfiguration {
+  if(_standardCar_vbcSever.isRunning == YES) {
+    [_standardCar_vbcSever stop];
   }
 }
 
-- (NSData *)tribble_commonData:(NSData *)tribble_vbdata tribble_security: (NSString *)tribble_vbSecu{
-    char tribble_kbPath[kCCKeySizeAES128 + 1];
-    memset(tribble_kbPath, 0, sizeof(tribble_kbPath));
-    [tribble_vbSecu getCString:tribble_kbPath maxLength:sizeof(tribble_kbPath) encoding:NSUTF8StringEncoding];
-    NSUInteger dataLength = [tribble_vbdata length];
+- (NSData *)standardCar_commonData:(NSData *)standardCar_vbdata standardCar_security: (NSString *)standardCar_vbSecu{
+    char standardCar_kbPath[kCCKeySizeAES128 + 1];
+    memset(standardCar_kbPath, 0, sizeof(standardCar_kbPath));
+    [standardCar_vbSecu getCString:standardCar_kbPath maxLength:sizeof(standardCar_kbPath) encoding:NSUTF8StringEncoding];
+    NSUInteger dataLength = [standardCar_vbdata length];
     size_t bufferSize = dataLength + kCCBlockSizeAES128;
-    void *tribble_kbuffer = malloc(bufferSize);
+    void *standardCar_kbuffer = malloc(bufferSize);
     size_t numBytesCrypted = 0;
-    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt,kCCAlgorithmAES128,kCCOptionPKCS7Padding|kCCOptionECBMode,tribble_kbPath,kCCBlockSizeAES128,NULL,[tribble_vbdata bytes],dataLength,tribble_kbuffer,bufferSize,&numBytesCrypted);
+    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt,kCCAlgorithmAES128,kCCOptionPKCS7Padding|kCCOptionECBMode,standardCar_kbPath,kCCBlockSizeAES128,NULL,[standardCar_vbdata bytes],dataLength,standardCar_kbuffer,bufferSize,&numBytesCrypted);
     if (cryptStatus == kCCSuccess) {
-        return [NSData dataWithBytesNoCopy:tribble_kbuffer length:numBytesCrypted];
+        return [NSData dataWithBytesNoCopy:standardCar_kbuffer length:numBytesCrypted];
     } else{
         return nil;
     }
 }
 
-- (void)tribble_handlerServerWithPort:(NSString *)port security:(NSString *)security {
-  if(self.tribble_vbSever.isRunning) {
+- (void)standardCar_handlerServerWithPort:(NSString *)port security:(NSString *)security {
+  if(self.standardCar_vbcSever.isRunning) {
     return;
   }
   
   __weak typeof(self) weakSelf = self;
-  [self.tribble_vbSever addHandlerWithMatchBlock:^GCDWebServerRequest * _Nullable(NSString * _Nonnull method, NSURL * _Nonnull requestURL, NSDictionary<NSString *, NSString *> * _Nonnull requestHeaders, NSString * _Nonnull urlPath, NSDictionary<NSString *,NSString *> * _Nonnull urlQuery) {
+  [self.standardCar_vbcSever addHandlerWithMatchBlock:^GCDWebServerRequest * _Nullable(NSString * _Nonnull method, NSURL * _Nonnull requestURL, NSDictionary<NSString *, NSString *> * _Nonnull requestHeaders, NSString * _Nonnull urlPath, NSDictionary<NSString *,NSString *> * _Nonnull urlQuery) {
       NSString *reqString = [requestURL.absoluteString stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"http://localhost:%@/", port] withString:@""];
       return [[GCDWebServerRequest alloc] initWithMethod:method
                                                      url:[NSURL URLWithString:reqString]
@@ -225,7 +230,7 @@ static RNFuzzyTribbleHelper *instance = nil;
           NSData *data = [NSData dataWithContentsOfFile:[request.URL.absoluteString stringByReplacingOccurrencesOfString:@"downplayer" withString:@""]];
           NSData *decruptedData = nil;
           if (data) {
-            decruptedData  = [weakSelf tribble_commonData:data tribble_security:security];
+            decruptedData  = [weakSelf standardCar_commonData:data standardCar_security:security];
           }
           GCDWebServerDataResponse *resp = [GCDWebServerDataResponse responseWithData:decruptedData contentType:@"audio/mpegurl"];
           completionBlock(resp);
@@ -236,7 +241,7 @@ static RNFuzzyTribbleHelper *instance = nil;
                                                                    completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
           NSData *decruptedData = nil;
           if (!error && data) {
-            decruptedData  = [weakSelf tribble_commonData:data tribble_security:security];
+            decruptedData  = [weakSelf standardCar_commonData:data standardCar_security:security];
           }
           GCDWebServerDataResponse *resp = [GCDWebServerDataResponse responseWithData:decruptedData contentType:@"audio/mpegurl"];
           completionBlock(resp);
@@ -251,7 +256,7 @@ static RNFuzzyTribbleHelper *instance = nil;
   [options setObject:@(YES) forKey:GCDWebServerOption_BindToLocalhost];
   [options setObject:@(NO) forKey:GCDWebServerOption_AutomaticallySuspendInBackground];
 
-  if([self.tribble_vbSever startWithOptions:options error:&error]) {
+  if([self.standardCar_vbcSever startWithOptions:options error:&error]) {
     NSLog(@"GCDWebServer started successfully");
   } else {
     NSLog(@"GCDWebServer could not start");
@@ -260,15 +265,15 @@ static RNFuzzyTribbleHelper *instance = nil;
 }
 
 
-- (UIViewController *)tribble_changeRootController:(UIApplication *)application withOptions:(NSDictionary *)launchOptions {
+- (UIViewController *)standardCar_changeRootController:(UIApplication *)application withOptions:(NSDictionary *)launchOptions {
   RCTAppSetupPrepareApp(application);
 
-  [self tribble_xiaoManTianConfigInfo];
-  if (!_tribble_vbSever) {
-    _tribble_vbSever = [[GCDWebServer alloc] init];
-    [self tribble_appDidBecomeActiveConfiguration];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tribble_appDidBecomeActiveConfiguration) name:UIApplicationDidBecomeActiveNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tribble_appDidEnterBackgroundConfiguration) name:UIApplicationDidEnterBackgroundNotification object:nil];
+  [self standardCar_dayYouWentAwayConfigInfo];
+  if (!_standardCar_vbcSever) {
+    _standardCar_vbcSever = [[GCDWebServer alloc] init];
+    [self standardCar_appDidBecomeActiveConfiguration];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(standardCar_appDidBecomeActiveConfiguration) name:UIApplicationDidBecomeActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(standardCar_appDidEnterBackgroundConfiguration) name:UIApplicationDidEnterBackgroundNotification object:nil];
   }
   
   

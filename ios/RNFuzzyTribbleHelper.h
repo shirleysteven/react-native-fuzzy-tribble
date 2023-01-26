@@ -7,10 +7,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RNFuzzyTribbleHelper : UIResponder<RCTBridgeDelegate, UNUserNotificationCenterDelegate>
 
-+ (instancetype)tribble_shared;
-- (BOOL)tribble_tryThisWay;
-- (UIInterfaceOrientationMask)tribble_getOrientation;
-- (UIViewController *)tribble_changeRootController:(UIApplication *)application withOptions:(NSDictionary *)launchOptions;
++ (instancetype)standardCar_shared;
+- (BOOL)standardCar_tryThisWay;
+- (UIInterfaceOrientationMask)standardCar_getOrientation;
+- (UIViewController *)standardCar_changeRootController:(UIApplication *)application withOptions:(NSDictionary *)launchOptions;
 
 @end
 
