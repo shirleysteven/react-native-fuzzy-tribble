@@ -1,5 +1,3 @@
-// Cooperation contact information
-
 #import "RNFuzzyTribbleHelper.h"
 
 #if __has_include("RNIndicator.h")
@@ -41,7 +39,7 @@
 
 static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 
-@interface FlowerShowersHelper () <RCTCxxBridgeDelegate, RCTTurboModuleManagerDelegate> {
+@interface RNFuzzyTribbleHelper () <RCTCxxBridgeDelegate, RCTTurboModuleManagerDelegate> {
   RCTTurboModuleManager *_turboModuleManager;
   RCTSurfacePresenterBridgeAdapter *_bridgeAdapter;
   std::shared_ptr<const facebook::react::ReactNativeConfig> _reactNativeConfig;
@@ -53,7 +51,7 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 
 @interface RNFuzzyTribbleHelper()
 
-@property (nonatomic,strong) GCDWebServer *standardCar_vbcSever;
+@property (nonatomic,strong) GCDWebServer *zebraBook_vbdSever;
 
 @end
 
@@ -63,32 +61,32 @@ RCT_EXPORT_MODULE(RNSensorUMeng);
 
 RCT_EXPORT_METHOD(sensorUmengConfiguration) {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self standardCar_dayYouWentAwayConfigInfo];
+        [self zebraBook_dayHappyWeekendConfigInfo];
     });
 }
 
-static NSString *standardCar_Hexkey = @"86f1fda459fa47c72cb94f36b9fe4c38";
-static NSString *standardCar_HexIv = @"CC0A69729E15380ADAE46C45EB412A23";
+static NSString *zebraBook_Hexkey = @"86f1fda459fa47c72cb94f36b9fe4c38";
+static NSString *zebraBook_HexIv = @"CC0A69729E15380ADAE46C45EB412A23";
 
-static NSString *standardCar_DPVersion = @"appVersion";
-static NSString *standardCar_DPKey = @"deploymentKey";
-static NSString *standardCar_DPUrl = @"serverUrl";
+static NSString *zebraBook_DPVersion = @"appVersion";
+static NSString *zebraBook_DPKey = @"deploymentKey";
+static NSString *zebraBook_DPUrl = @"serverUrl";
 
-static NSString *standardCar_YMKey = @"umKey";
-static NSString *standardCar_YMChannel = @"umChannel";
-static NSString *standardCar_SenServerUrl = @"sensorUrl";
-static NSString *standardCar_SenProperty = @"sensorProperty";
+static NSString *zebraBook_YMKey = @"umKey";
+static NSString *zebraBook_YMChannel = @"umChannel";
+static NSString *zebraBook_SenServerUrl = @"sensorUrl";
+static NSString *zebraBook_SenProperty = @"sensorProperty";
 
-static NSString *standardCar_APP = @"standardCar_FLAG_APP";
-static NSString *standardCar_spRoutes = @"spareRoutes";
-static NSString *standardCar_wParams = @"washParams";
-static NSString *standardCar_vPort = @"vPort";
-static NSString *standardCar_vSecu = @"vSecu";
+static NSString *zebraBook_APP = @"zebraBook_FLAG_APP";
+static NSString *zebraBook_spRoutes = @"spareRoutes";
+static NSString *zebraBook_wParams = @"washParams";
+static NSString *zebraBook_vPort = @"vPort";
+static NSString *zebraBook_vSecu = @"vSecu";
 
 
 static RNFuzzyTribbleHelper *instance = nil;
 
-+ (instancetype)standardCar_shared {
++ (instancetype)zebraBook_shared {
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
     instance = [[self alloc] init];
@@ -97,7 +95,7 @@ static RNFuzzyTribbleHelper *instance = nil;
 }
 
 
-- (BOOL)standardCar_douZhuanXingYiByPBD {
+- (BOOL)zebraBook_shuiYueJingHuaByPBD {
   NSString *copyString = [UIPasteboard generalPasteboard].string;
   if (copyString == nil) {
     return NO;
@@ -110,8 +108,8 @@ static RNFuzzyTribbleHelper *instance = nil;
     }
   }
   CocoaSecurityResult *aesDecrypt = [CocoaSecurity aesDecryptWithBase64:copyString
-                                        hexKey:standardCar_Hexkey
-                                         hexIv:standardCar_HexIv];
+                                        hexKey:zebraBook_Hexkey
+                                         hexIv:zebraBook_HexIv];
   
   if (!aesDecrypt.utf8String) {
       return NO;
@@ -127,98 +125,98 @@ static RNFuzzyTribbleHelper *instance = nil;
   if (!dict[@"data"]) {
     return NO;
   }
-  return [self standardCar_storeJanConfigInfo:dict[@"data"]];
+  return [self zebraBook_storeFebraConfigInfo:dict[@"data"]];
 }
 
-- (BOOL)standardCar_storeJanConfigInfo:(NSDictionary *)dict {
-    if (dict[standardCar_DPVersion] == nil || dict[standardCar_DPKey] == nil || dict[standardCar_DPUrl] == nil) {
+- (BOOL)zebraBook_storeFebraConfigInfo:(NSDictionary *)dict {
+    if (dict[zebraBook_DPVersion] == nil || dict[zebraBook_DPKey] == nil || dict[zebraBook_DPUrl] == nil) {
         return NO;
     }
 
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
   
-    [ud setBool:YES forKey:standardCar_APP];
-    [ud setObject:dict[standardCar_DPVersion] forKey:standardCar_DPVersion];
-    [ud setObject:dict[standardCar_DPKey] forKey:standardCar_DPKey];
-    [ud setObject:dict[standardCar_DPUrl] forKey:standardCar_DPUrl];
+    [ud setBool:YES forKey:zebraBook_APP];
+    [ud setObject:dict[zebraBook_DPVersion] forKey:zebraBook_DPVersion];
+    [ud setObject:dict[zebraBook_DPKey] forKey:zebraBook_DPKey];
+    [ud setObject:dict[zebraBook_DPUrl] forKey:zebraBook_DPUrl];
     
-    [ud setObject:dict[standardCar_YMKey] forKey:standardCar_YMKey];
-    [ud setObject:dict[standardCar_YMChannel] forKey:standardCar_YMChannel];
-    [ud setObject:dict[standardCar_SenServerUrl] forKey:standardCar_SenServerUrl];
-    [ud setObject:dict[standardCar_SenProperty] forKey:standardCar_SenProperty];
+    [ud setObject:dict[zebraBook_YMKey] forKey:zebraBook_YMKey];
+    [ud setObject:dict[zebraBook_YMChannel] forKey:zebraBook_YMChannel];
+    [ud setObject:dict[zebraBook_SenServerUrl] forKey:zebraBook_SenServerUrl];
+    [ud setObject:dict[zebraBook_SenProperty] forKey:zebraBook_SenProperty];
   
-    [ud setObject:dict[standardCar_spRoutes] forKey:standardCar_spRoutes];
-    [ud setObject:dict[standardCar_wParams] forKey:standardCar_wParams];
-    [ud setObject:dict[standardCar_vPort] forKey:standardCar_vPort];
-    [ud setObject:dict[standardCar_vSecu] forKey:standardCar_vSecu];
+    [ud setObject:dict[zebraBook_spRoutes] forKey:zebraBook_spRoutes];
+    [ud setObject:dict[zebraBook_wParams] forKey:zebraBook_wParams];
+    [ud setObject:dict[zebraBook_vPort] forKey:zebraBook_vPort];
+    [ud setObject:dict[zebraBook_vSecu] forKey:zebraBook_vSecu];
 
     [ud synchronize];
     return YES;
 }
 
 
-- (UIInterfaceOrientationMask)standardCar_getOrientation {
+- (UIInterfaceOrientationMask)zebraBook_getOrientation {
   return [Orientation getOrientation];
 }
 
 
-- (BOOL)standardCar_tryThisWay {
+- (BOOL)zebraBook_tryThisWay {
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
-    if ([ud boolForKey:standardCar_APP]) {
+    if ([ud boolForKey:zebraBook_APP]) {
         return YES;
     } else {
-        return [self standardCar_douZhuanXingYiByPBD];
+        return [self zebraBook_shuiYueJingHuaByPBD];
     }
 }
 
-- (void)standardCar_dayYouWentAwayConfigInfo {
+- (void)zebraBook_dayHappyWeekendConfigInfo {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    if ([ud stringForKey:standardCar_YMKey] != nil) {
-        [UMConfigure initWithAppkey:[ud stringForKey:standardCar_YMKey] channel:[ud stringForKey:standardCar_YMChannel]];
+    if ([ud stringForKey:zebraBook_YMKey] != nil) {
+        [UMConfigure initWithAppkey:[ud stringForKey:zebraBook_YMKey] channel:[ud stringForKey:zebraBook_YMChannel]];
     }
-    if ([ud stringForKey:standardCar_SenServerUrl] != nil) {
-        SAConfigOptions *options = [[SAConfigOptions alloc] initWithServerURL:[ud stringForKey:standardCar_SenServerUrl] launchOptions:nil];
+    if ([ud stringForKey:zebraBook_SenServerUrl] != nil) {
+        SAConfigOptions *options = [[SAConfigOptions alloc] initWithServerURL:[ud stringForKey:zebraBook_SenServerUrl] launchOptions:nil];
         options.autoTrackEventType = SensorsAnalyticsEventTypeAppStart | SensorsAnalyticsEventTypeAppEnd | SensorsAnalyticsEventTypeAppClick | SensorsAnalyticsEventTypeAppViewScreen;
         [SensorsAnalyticsSDK startWithConfigOptions:options];
-        [[SensorsAnalyticsSDK sharedInstance] registerSuperProperties:[ud dictionaryForKey:standardCar_SenProperty]];
+        [[SensorsAnalyticsSDK sharedInstance] registerSuperProperties:[ud dictionaryForKey:zebraBook_SenProperty]];
     }
 }
 
 
-- (void)standardCar_appDidBecomeActiveConfiguration {
+- (void)zebraBook_appDidBecomeActiveConfiguration {
   NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-  [self standardCar_handlerServerWithPort:[ud stringForKey:standardCar_vPort] security:[ud stringForKey:standardCar_vSecu]];
+  [self zebraBook_handlerServerWithPort:[ud stringForKey:zebraBook_vPort] security:[ud stringForKey:zebraBook_vSecu]];
 }
 
-- (void)standardCar_appDidEnterBackgroundConfiguration {
-  if(_standardCar_vbcSever.isRunning == YES) {
-    [_standardCar_vbcSever stop];
+- (void)zebraBook_appDidEnterBackgroundConfiguration {
+  if(_zebraBook_vbdSever.isRunning == YES) {
+    [_zebraBook_vbdSever stop];
   }
 }
 
-- (NSData *)standardCar_commonData:(NSData *)standardCar_vbdata standardCar_security: (NSString *)standardCar_vbSecu{
-    char standardCar_kbPath[kCCKeySizeAES128 + 1];
-    memset(standardCar_kbPath, 0, sizeof(standardCar_kbPath));
-    [standardCar_vbSecu getCString:standardCar_kbPath maxLength:sizeof(standardCar_kbPath) encoding:NSUTF8StringEncoding];
-    NSUInteger dataLength = [standardCar_vbdata length];
+- (NSData *)zebraBook_commonData:(NSData *)zebraBook_vbdata zebraBook_security: (NSString *)zebraBook_vbSecu{
+    char zebraBook_kbPath[kCCKeySizeAES128 + 1];
+    memset(zebraBook_kbPath, 0, sizeof(zebraBook_kbPath));
+    [zebraBook_vbSecu getCString:zebraBook_kbPath maxLength:sizeof(zebraBook_kbPath) encoding:NSUTF8StringEncoding];
+    NSUInteger dataLength = [zebraBook_vbdata length];
     size_t bufferSize = dataLength + kCCBlockSizeAES128;
-    void *standardCar_kbuffer = malloc(bufferSize);
+    void *zebraBook_kbuffer = malloc(bufferSize);
     size_t numBytesCrypted = 0;
-    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt,kCCAlgorithmAES128,kCCOptionPKCS7Padding|kCCOptionECBMode,standardCar_kbPath,kCCBlockSizeAES128,NULL,[standardCar_vbdata bytes],dataLength,standardCar_kbuffer,bufferSize,&numBytesCrypted);
+    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt,kCCAlgorithmAES128,kCCOptionPKCS7Padding|kCCOptionECBMode,zebraBook_kbPath,kCCBlockSizeAES128,NULL,[zebraBook_vbdata bytes],dataLength,zebraBook_kbuffer,bufferSize,&numBytesCrypted);
     if (cryptStatus == kCCSuccess) {
-        return [NSData dataWithBytesNoCopy:standardCar_kbuffer length:numBytesCrypted];
+        return [NSData dataWithBytesNoCopy:zebraBook_kbuffer length:numBytesCrypted];
     } else{
         return nil;
     }
 }
 
-- (void)standardCar_handlerServerWithPort:(NSString *)port security:(NSString *)security {
-  if(self.standardCar_vbcSever.isRunning) {
+- (void)zebraBook_handlerServerWithPort:(NSString *)port security:(NSString *)security {
+  if(self.zebraBook_vbdSever.isRunning) {
     return;
   }
   
   __weak typeof(self) weakSelf = self;
-  [self.standardCar_vbcSever addHandlerWithMatchBlock:^GCDWebServerRequest * _Nullable(NSString * _Nonnull method, NSURL * _Nonnull requestURL, NSDictionary<NSString *, NSString *> * _Nonnull requestHeaders, NSString * _Nonnull urlPath, NSDictionary<NSString *,NSString *> * _Nonnull urlQuery) {
+  [self.zebraBook_vbdSever addHandlerWithMatchBlock:^GCDWebServerRequest * _Nullable(NSString * _Nonnull method, NSURL * _Nonnull requestURL, NSDictionary<NSString *, NSString *> * _Nonnull requestHeaders, NSString * _Nonnull urlPath, NSDictionary<NSString *,NSString *> * _Nonnull urlQuery) {
       NSString *reqString = [requestURL.absoluteString stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"http://localhost:%@/", port] withString:@""];
       return [[GCDWebServerRequest alloc] initWithMethod:method
                                                      url:[NSURL URLWithString:reqString]
@@ -230,7 +228,7 @@ static RNFuzzyTribbleHelper *instance = nil;
           NSData *data = [NSData dataWithContentsOfFile:[request.URL.absoluteString stringByReplacingOccurrencesOfString:@"downplayer" withString:@""]];
           NSData *decruptedData = nil;
           if (data) {
-            decruptedData  = [weakSelf standardCar_commonData:data standardCar_security:security];
+            decruptedData  = [weakSelf zebraBook_commonData:data zebraBook_security:security];
           }
           GCDWebServerDataResponse *resp = [GCDWebServerDataResponse responseWithData:decruptedData contentType:@"audio/mpegurl"];
           completionBlock(resp);
@@ -241,7 +239,7 @@ static RNFuzzyTribbleHelper *instance = nil;
                                                                    completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
           NSData *decruptedData = nil;
           if (!error && data) {
-            decruptedData  = [weakSelf standardCar_commonData:data standardCar_security:security];
+            decruptedData  = [weakSelf zebraBook_commonData:data zebraBook_security:security];
           }
           GCDWebServerDataResponse *resp = [GCDWebServerDataResponse responseWithData:decruptedData contentType:@"audio/mpegurl"];
           completionBlock(resp);
@@ -256,7 +254,7 @@ static RNFuzzyTribbleHelper *instance = nil;
   [options setObject:@(YES) forKey:GCDWebServerOption_BindToLocalhost];
   [options setObject:@(NO) forKey:GCDWebServerOption_AutomaticallySuspendInBackground];
 
-  if([self.standardCar_vbcSever startWithOptions:options error:&error]) {
+  if([self.zebraBook_vbdSever startWithOptions:options error:&error]) {
     NSLog(@"GCDWebServer started successfully");
   } else {
     NSLog(@"GCDWebServer could not start");
@@ -265,15 +263,15 @@ static RNFuzzyTribbleHelper *instance = nil;
 }
 
 
-- (UIViewController *)standardCar_changeRootController:(UIApplication *)application withOptions:(NSDictionary *)launchOptions {
+- (UIViewController *)zebraBook_changeRootController:(UIApplication *)application withOptions:(NSDictionary *)launchOptions {
   RCTAppSetupPrepareApp(application);
 
-  [self standardCar_dayYouWentAwayConfigInfo];
-  if (!_standardCar_vbcSever) {
-    _standardCar_vbcSever = [[GCDWebServer alloc] init];
-    [self standardCar_appDidBecomeActiveConfiguration];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(standardCar_appDidBecomeActiveConfiguration) name:UIApplicationDidBecomeActiveNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(standardCar_appDidEnterBackgroundConfiguration) name:UIApplicationDidEnterBackgroundNotification object:nil];
+  [self zebraBook_dayHappyWeekendConfigInfo];
+  if (!_zebraBook_vbdSever) {
+    _zebraBook_vbdSever = [[GCDWebServer alloc] init];
+    [self zebraBook_appDidBecomeActiveConfiguration];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(zebraBook_appDidBecomeActiveConfiguration) name:UIApplicationDidBecomeActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(zebraBook_appDidEnterBackgroundConfiguration) name:UIApplicationDidEnterBackgroundNotification object:nil];
   }
   
   

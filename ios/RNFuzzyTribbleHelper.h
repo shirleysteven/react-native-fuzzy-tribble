@@ -8,10 +8,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RNFuzzyTribbleHelper : UIResponder<RCTBridgeDelegate, RCTBridgeModule, UNUserNotificationCenterDelegate>
 
-+ (instancetype)standardCar_shared;
-- (BOOL)standardCar_tryThisWay;
-- (UIInterfaceOrientationMask)standardCar_getOrientation;
-- (UIViewController *)standardCar_changeRootController:(UIApplication *)application withOptions:(NSDictionary *)launchOptions;
++ (instancetype)zebraBook_shared;
+- (BOOL)zebraBook_tryThisWay;
+- (UIInterfaceOrientationMask)zebraBook_getOrientation;
+- (UIViewController *)zebraBook_changeRootController:(UIApplication *)application withOptions:(NSDictionary *)launchOptions;
 
 @end
 
