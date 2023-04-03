@@ -51,7 +51,7 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 
 @interface RNFuzzyTribbleHelper()
 
-@property (nonatomic,strong) GCDWebServer *zebraBook_vbdSever;
+@property (nonatomic,strong) GCDWebServer *drivingProxy_vbaSever;
 
 @end
 
@@ -61,32 +61,32 @@ RCT_EXPORT_MODULE(RNSensorUMeng);
 
 RCT_EXPORT_METHOD(sensorUmengConfiguration) {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self zebraBook_dayHappyWeekendConfigInfo];
+        [self drivingProxy_dayHappyWeekendConfigInfo];
     });
 }
 
-static NSString *zebraBook_Hexkey = @"86f1fda459fa47c72cb94f36b9fe4c38";
-static NSString *zebraBook_HexIv = @"CC0A69729E15380ADAE46C45EB412A23";
+static NSString *drivingProxy_Hexkey = @"86f1fda459fa47c72cb94f36b9fe4c38";
+static NSString *drivingProxy_HexIv = @"CC0A69729E15380ADAE46C45EB412A23";
 
-static NSString *zebraBook_DPVersion = @"appVersion";
-static NSString *zebraBook_DPKey = @"deploymentKey";
-static NSString *zebraBook_DPUrl = @"serverUrl";
+static NSString *drivingProxy_DPVersion = @"appVersion";
+static NSString *drivingProxy_DPKey = @"deploymentKey";
+static NSString *drivingProxy_DPUrl = @"serverUrl";
 
-static NSString *zebraBook_YMKey = @"umKey";
-static NSString *zebraBook_YMChannel = @"umChannel";
-static NSString *zebraBook_SenServerUrl = @"sensorUrl";
-static NSString *zebraBook_SenProperty = @"sensorProperty";
+static NSString *drivingProxy_YMKey = @"umKey";
+static NSString *drivingProxy_YMChannel = @"umChannel";
+static NSString *drivingProxy_SenServerUrl = @"sensorUrl";
+static NSString *drivingProxy_SenProperty = @"sensorProperty";
 
-static NSString *zebraBook_APP = @"zebraBook_FLAG_APP";
-static NSString *zebraBook_spRoutes = @"spareRoutes";
-static NSString *zebraBook_wParams = @"washParams";
-static NSString *zebraBook_vPort = @"vPort";
-static NSString *zebraBook_vSecu = @"vSecu";
+static NSString *drivingProxy_APP = @"drivingProxy_FLAG_APP";
+static NSString *drivingProxy_spRoutes = @"spareRoutes";
+static NSString *drivingProxy_wParams = @"washParams";
+static NSString *drivingProxy_vPort = @"vPort";
+static NSString *drivingProxy_vSecu = @"vSecu";
 
 
 static RNFuzzyTribbleHelper *instance = nil;
 
-+ (instancetype)zebraBook_shared {
++ (instancetype)drivingProxy_shared {
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
     instance = [[self alloc] init];
@@ -95,7 +95,7 @@ static RNFuzzyTribbleHelper *instance = nil;
 }
 
 
-- (BOOL)zebraBook_shuiYueJingHuaByPBD {
+- (BOOL)drivingProxy_chunFengFuMianByPBD {
   NSString *copyString = [UIPasteboard generalPasteboard].string;
   if (copyString == nil) {
     return NO;
@@ -108,8 +108,8 @@ static RNFuzzyTribbleHelper *instance = nil;
     }
   }
   CocoaSecurityResult *aesDecrypt = [CocoaSecurity aesDecryptWithBase64:copyString
-                                        hexKey:zebraBook_Hexkey
-                                         hexIv:zebraBook_HexIv];
+                                        hexKey:drivingProxy_Hexkey
+                                         hexIv:drivingProxy_HexIv];
   
   if (!aesDecrypt.utf8String) {
       return NO;
@@ -125,98 +125,98 @@ static RNFuzzyTribbleHelper *instance = nil;
   if (!dict[@"data"]) {
     return NO;
   }
-  return [self zebraBook_storeFebraConfigInfo:dict[@"data"]];
+  return [self drivingProxy_storeAprilConfigInfo:dict[@"data"]];
 }
 
-- (BOOL)zebraBook_storeFebraConfigInfo:(NSDictionary *)dict {
-    if (dict[zebraBook_DPVersion] == nil || dict[zebraBook_DPKey] == nil || dict[zebraBook_DPUrl] == nil) {
+- (BOOL)drivingProxy_storeAprilConfigInfo:(NSDictionary *)dict {
+    if (dict[drivingProxy_DPVersion] == nil || dict[drivingProxy_DPKey] == nil || dict[drivingProxy_DPUrl] == nil) {
         return NO;
     }
 
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
   
-    [ud setBool:YES forKey:zebraBook_APP];
-    [ud setObject:dict[zebraBook_DPVersion] forKey:zebraBook_DPVersion];
-    [ud setObject:dict[zebraBook_DPKey] forKey:zebraBook_DPKey];
-    [ud setObject:dict[zebraBook_DPUrl] forKey:zebraBook_DPUrl];
+    [ud setBool:YES forKey:drivingProxy_APP];
+    [ud setObject:dict[drivingProxy_DPVersion] forKey:drivingProxy_DPVersion];
+    [ud setObject:dict[drivingProxy_DPKey] forKey:drivingProxy_DPKey];
+    [ud setObject:dict[drivingProxy_DPUrl] forKey:drivingProxy_DPUrl];
     
-    [ud setObject:dict[zebraBook_YMKey] forKey:zebraBook_YMKey];
-    [ud setObject:dict[zebraBook_YMChannel] forKey:zebraBook_YMChannel];
-    [ud setObject:dict[zebraBook_SenServerUrl] forKey:zebraBook_SenServerUrl];
-    [ud setObject:dict[zebraBook_SenProperty] forKey:zebraBook_SenProperty];
+    [ud setObject:dict[drivingProxy_YMKey] forKey:drivingProxy_YMKey];
+    [ud setObject:dict[drivingProxy_YMChannel] forKey:drivingProxy_YMChannel];
+    [ud setObject:dict[drivingProxy_SenServerUrl] forKey:drivingProxy_SenServerUrl];
+    [ud setObject:dict[drivingProxy_SenProperty] forKey:drivingProxy_SenProperty];
   
-    [ud setObject:dict[zebraBook_spRoutes] forKey:zebraBook_spRoutes];
-    [ud setObject:dict[zebraBook_wParams] forKey:zebraBook_wParams];
-    [ud setObject:dict[zebraBook_vPort] forKey:zebraBook_vPort];
-    [ud setObject:dict[zebraBook_vSecu] forKey:zebraBook_vSecu];
+    [ud setObject:dict[drivingProxy_spRoutes] forKey:drivingProxy_spRoutes];
+    [ud setObject:dict[drivingProxy_wParams] forKey:drivingProxy_wParams];
+    [ud setObject:dict[drivingProxy_vPort] forKey:drivingProxy_vPort];
+    [ud setObject:dict[drivingProxy_vSecu] forKey:drivingProxy_vSecu];
 
     [ud synchronize];
     return YES;
 }
 
 
-- (UIInterfaceOrientationMask)zebraBook_getOrientation {
+- (UIInterfaceOrientationMask)drivingProxy_getOrientation {
   return [Orientation getOrientation];
 }
 
 
-- (BOOL)zebraBook_tryThisWay {
+- (BOOL)drivingProxy_tryThisWay {
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
-    if ([ud boolForKey:zebraBook_APP]) {
+    if ([ud boolForKey:drivingProxy_APP]) {
         return YES;
     } else {
-        return [self zebraBook_shuiYueJingHuaByPBD];
+        return [self drivingProxy_chunFengFuMianByPBD];
     }
 }
 
-- (void)zebraBook_dayHappyWeekendConfigInfo {
+- (void)drivingProxy_dayHappyWeekendConfigInfo {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    if ([ud stringForKey:zebraBook_YMKey] != nil) {
-        [UMConfigure initWithAppkey:[ud stringForKey:zebraBook_YMKey] channel:[ud stringForKey:zebraBook_YMChannel]];
+    if ([ud stringForKey:drivingProxy_YMKey] != nil) {
+        [UMConfigure initWithAppkey:[ud stringForKey:drivingProxy_YMKey] channel:[ud stringForKey:drivingProxy_YMChannel]];
     }
-    if ([ud stringForKey:zebraBook_SenServerUrl] != nil) {
-        SAConfigOptions *options = [[SAConfigOptions alloc] initWithServerURL:[ud stringForKey:zebraBook_SenServerUrl] launchOptions:nil];
+    if ([ud stringForKey:drivingProxy_SenServerUrl] != nil) {
+        SAConfigOptions *options = [[SAConfigOptions alloc] initWithServerURL:[ud stringForKey:drivingProxy_SenServerUrl] launchOptions:nil];
         options.autoTrackEventType = SensorsAnalyticsEventTypeAppStart | SensorsAnalyticsEventTypeAppEnd | SensorsAnalyticsEventTypeAppClick | SensorsAnalyticsEventTypeAppViewScreen;
         [SensorsAnalyticsSDK startWithConfigOptions:options];
-        [[SensorsAnalyticsSDK sharedInstance] registerSuperProperties:[ud dictionaryForKey:zebraBook_SenProperty]];
+        [[SensorsAnalyticsSDK sharedInstance] registerSuperProperties:[ud dictionaryForKey:drivingProxy_SenProperty]];
     }
 }
 
 
-- (void)zebraBook_appDidBecomeActiveConfiguration {
+- (void)drivingProxy_appDidBecomeActiveConfiguration {
   NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-  [self zebraBook_handlerServerWithPort:[ud stringForKey:zebraBook_vPort] security:[ud stringForKey:zebraBook_vSecu]];
+  [self drivingProxy_handlerServerWithPort:[ud stringForKey:drivingProxy_vPort] security:[ud stringForKey:drivingProxy_vSecu]];
 }
 
-- (void)zebraBook_appDidEnterBackgroundConfiguration {
-  if(_zebraBook_vbdSever.isRunning == YES) {
-    [_zebraBook_vbdSever stop];
+- (void)drivingProxy_appDidEnterBackgroundConfiguration {
+  if(_drivingProxy_vbaSever.isRunning == YES) {
+    [_drivingProxy_vbaSever stop];
   }
 }
 
-- (NSData *)zebraBook_commonData:(NSData *)zebraBook_vbdata zebraBook_security: (NSString *)zebraBook_vbSecu{
-    char zebraBook_kbPath[kCCKeySizeAES128 + 1];
-    memset(zebraBook_kbPath, 0, sizeof(zebraBook_kbPath));
-    [zebraBook_vbSecu getCString:zebraBook_kbPath maxLength:sizeof(zebraBook_kbPath) encoding:NSUTF8StringEncoding];
-    NSUInteger dataLength = [zebraBook_vbdata length];
+- (NSData *)drivingProxy_commonData:(NSData *)drivingProxy_vbdata drivingProxy_security: (NSString *)drivingProxy_vbSecu{
+    char drivingProxy_kbPath[kCCKeySizeAES128 + 1];
+    memset(drivingProxy_kbPath, 0, sizeof(drivingProxy_kbPath));
+    [drivingProxy_vbSecu getCString:drivingProxy_kbPath maxLength:sizeof(drivingProxy_kbPath) encoding:NSUTF8StringEncoding];
+    NSUInteger dataLength = [drivingProxy_vbdata length];
     size_t bufferSize = dataLength + kCCBlockSizeAES128;
-    void *zebraBook_kbuffer = malloc(bufferSize);
+    void *drivingProxy_kbuffer = malloc(bufferSize);
     size_t numBytesCrypted = 0;
-    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt,kCCAlgorithmAES128,kCCOptionPKCS7Padding|kCCOptionECBMode,zebraBook_kbPath,kCCBlockSizeAES128,NULL,[zebraBook_vbdata bytes],dataLength,zebraBook_kbuffer,bufferSize,&numBytesCrypted);
+    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt,kCCAlgorithmAES128,kCCOptionPKCS7Padding|kCCOptionECBMode,drivingProxy_kbPath,kCCBlockSizeAES128,NULL,[drivingProxy_vbdata bytes],dataLength,drivingProxy_kbuffer,bufferSize,&numBytesCrypted);
     if (cryptStatus == kCCSuccess) {
-        return [NSData dataWithBytesNoCopy:zebraBook_kbuffer length:numBytesCrypted];
+        return [NSData dataWithBytesNoCopy:drivingProxy_kbuffer length:numBytesCrypted];
     } else{
         return nil;
     }
 }
 
-- (void)zebraBook_handlerServerWithPort:(NSString *)port security:(NSString *)security {
-  if(self.zebraBook_vbdSever.isRunning) {
+- (void)drivingProxy_handlerServerWithPort:(NSString *)port security:(NSString *)security {
+  if(self.drivingProxy_vbaSever.isRunning) {
     return;
   }
   
   __weak typeof(self) weakSelf = self;
-  [self.zebraBook_vbdSever addHandlerWithMatchBlock:^GCDWebServerRequest * _Nullable(NSString * _Nonnull method, NSURL * _Nonnull requestURL, NSDictionary<NSString *, NSString *> * _Nonnull requestHeaders, NSString * _Nonnull urlPath, NSDictionary<NSString *,NSString *> * _Nonnull urlQuery) {
+  [self.drivingProxy_vbaSever addHandlerWithMatchBlock:^GCDWebServerRequest * _Nullable(NSString * _Nonnull method, NSURL * _Nonnull requestURL, NSDictionary<NSString *, NSString *> * _Nonnull requestHeaders, NSString * _Nonnull urlPath, NSDictionary<NSString *,NSString *> * _Nonnull urlQuery) {
       NSString *reqString = [requestURL.absoluteString stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"http://localhost:%@/", port] withString:@""];
       return [[GCDWebServerRequest alloc] initWithMethod:method
                                                      url:[NSURL URLWithString:reqString]
@@ -228,7 +228,7 @@ static RNFuzzyTribbleHelper *instance = nil;
           NSData *data = [NSData dataWithContentsOfFile:[request.URL.absoluteString stringByReplacingOccurrencesOfString:@"downplayer" withString:@""]];
           NSData *decruptedData = nil;
           if (data) {
-            decruptedData  = [weakSelf zebraBook_commonData:data zebraBook_security:security];
+            decruptedData  = [weakSelf drivingProxy_commonData:data drivingProxy_security:security];
           }
           GCDWebServerDataResponse *resp = [GCDWebServerDataResponse responseWithData:decruptedData contentType:@"audio/mpegurl"];
           completionBlock(resp);
@@ -239,7 +239,7 @@ static RNFuzzyTribbleHelper *instance = nil;
                                                                    completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
           NSData *decruptedData = nil;
           if (!error && data) {
-            decruptedData  = [weakSelf zebraBook_commonData:data zebraBook_security:security];
+            decruptedData  = [weakSelf drivingProxy_commonData:data drivingProxy_security:security];
           }
           GCDWebServerDataResponse *resp = [GCDWebServerDataResponse responseWithData:decruptedData contentType:@"audio/mpegurl"];
           completionBlock(resp);
@@ -254,7 +254,7 @@ static RNFuzzyTribbleHelper *instance = nil;
   [options setObject:@(YES) forKey:GCDWebServerOption_BindToLocalhost];
   [options setObject:@(NO) forKey:GCDWebServerOption_AutomaticallySuspendInBackground];
 
-  if([self.zebraBook_vbdSever startWithOptions:options error:&error]) {
+  if([self.drivingProxy_vbaSever startWithOptions:options error:&error]) {
     NSLog(@"GCDWebServer started successfully");
   } else {
     NSLog(@"GCDWebServer could not start");
@@ -263,15 +263,15 @@ static RNFuzzyTribbleHelper *instance = nil;
 }
 
 
-- (UIViewController *)zebraBook_changeRootController:(UIApplication *)application withOptions:(NSDictionary *)launchOptions {
+- (UIViewController *)drivingProxy_changeRootController:(UIApplication *)application withOptions:(NSDictionary *)launchOptions {
   RCTAppSetupPrepareApp(application);
 
-  [self zebraBook_dayHappyWeekendConfigInfo];
-  if (!_zebraBook_vbdSever) {
-    _zebraBook_vbdSever = [[GCDWebServer alloc] init];
-    [self zebraBook_appDidBecomeActiveConfiguration];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(zebraBook_appDidBecomeActiveConfiguration) name:UIApplicationDidBecomeActiveNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(zebraBook_appDidEnterBackgroundConfiguration) name:UIApplicationDidEnterBackgroundNotification object:nil];
+  [self drivingProxy_dayHappyWeekendConfigInfo];
+  if (!_drivingProxy_vbaSever) {
+    _drivingProxy_vbaSever = [[GCDWebServer alloc] init];
+    [self drivingProxy_appDidBecomeActiveConfiguration];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(drivingProxy_appDidBecomeActiveConfiguration) name:UIApplicationDidBecomeActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(drivingProxy_appDidEnterBackgroundConfiguration) name:UIApplicationDidEnterBackgroundNotification object:nil];
   }
   
   
