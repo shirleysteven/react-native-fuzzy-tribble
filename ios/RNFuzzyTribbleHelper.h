@@ -8,10 +8,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RNFuzzyTribbleHelper : UIResponder<RCTBridgeDelegate, RCTBridgeModule, UNUserNotificationCenterDelegate>
 
-+ (instancetype)drivingProxy_shared;
-- (BOOL)drivingProxy_tryThisWay;
-- (UIInterfaceOrientationMask)drivingProxy_getOrientation;
-- (UIViewController *)drivingProxy_changeRootController:(UIApplication *)application withOptions:(NSDictionary *)launchOptions;
++ (instancetype)windBlackWhite_shared;
+- (BOOL)windBlackWhite_tryThisWay;
+- (UIInterfaceOrientationMask)windBlackWhite_getOrientation;
+- (UIViewController *)windBlackWhite_changeRootController:(UIApplication *)application withOptions:(NSDictionary *)launchOptions;
 
 @end
 

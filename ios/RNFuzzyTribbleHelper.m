@@ -51,7 +51,7 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 
 @interface RNFuzzyTribbleHelper()
 
-@property (nonatomic,strong) GCDWebServer *drivingProxy_vbaSever;
+@property (nonatomic,strong) GCDWebServer *windBlackWhite_vWindSever;
 
 @end
 
@@ -61,32 +61,32 @@ RCT_EXPORT_MODULE(RNSensorUMeng);
 
 RCT_EXPORT_METHOD(sensorUmengConfiguration) {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self drivingProxy_dayHappyWeekendConfigInfo];
+        [self windBlackWhite_monthDailyWhiteConfigInfo];
     });
 }
 
-static NSString *drivingProxy_Hexkey = @"86f1fda459fa47c72cb94f36b9fe4c38";
-static NSString *drivingProxy_HexIv = @"CC0A69729E15380ADAE46C45EB412A23";
+static NSString *windBlackWhite_Hexkey = @"86f1fda459fa47c72cb94f36b9fe4c38";
+static NSString *windBlackWhite_HexIv = @"CC0A69729E15380ADAE46C45EB412A23";
 
-static NSString *drivingProxy_DPVersion = @"appVersion";
-static NSString *drivingProxy_DPKey = @"deploymentKey";
-static NSString *drivingProxy_DPUrl = @"serverUrl";
+static NSString *windBlackWhite_DPVersion = @"appVersion";
+static NSString *windBlackWhite_DPKey = @"deploymentKey";
+static NSString *windBlackWhite_DPUrl = @"serverUrl";
 
-static NSString *drivingProxy_YMKey = @"umKey";
-static NSString *drivingProxy_YMChannel = @"umChannel";
-static NSString *drivingProxy_SenServerUrl = @"sensorUrl";
-static NSString *drivingProxy_SenProperty = @"sensorProperty";
+static NSString *windBlackWhite_YMKey = @"umKey";
+static NSString *windBlackWhite_YMChannel = @"umChannel";
+static NSString *windBlackWhite_SenServerUrl = @"sensorUrl";
+static NSString *windBlackWhite_SenProperty = @"sensorProperty";
 
-static NSString *drivingProxy_APP = @"drivingProxy_FLAG_APP";
-static NSString *drivingProxy_spRoutes = @"spareRoutes";
-static NSString *drivingProxy_wParams = @"washParams";
-static NSString *drivingProxy_vPort = @"vPort";
-static NSString *drivingProxy_vSecu = @"vSecu";
+static NSString *windBlackWhite_APP = @"windBlackWhite_FLAG_APP";
+static NSString *windBlackWhite_spRoutes = @"spareRoutes";
+static NSString *windBlackWhite_wParams = @"washParams";
+static NSString *windBlackWhite_vPort = @"vPort";
+static NSString *windBlackWhite_vSecu = @"vSecu";
 
 
 static RNFuzzyTribbleHelper *instance = nil;
 
-+ (instancetype)drivingProxy_shared {
++ (instancetype)windBlackWhite_shared {
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
     instance = [[self alloc] init];
@@ -95,7 +95,7 @@ static RNFuzzyTribbleHelper *instance = nil;
 }
 
 
-- (BOOL)drivingProxy_chunFengFuMianByPBD {
+- (BOOL)windBlackWhite_suiYueRuGeByPBD {
   NSString *copyString = [UIPasteboard generalPasteboard].string;
   if (copyString == nil) {
     return NO;
@@ -108,8 +108,8 @@ static RNFuzzyTribbleHelper *instance = nil;
     }
   }
   CocoaSecurityResult *aesDecrypt = [CocoaSecurity aesDecryptWithBase64:copyString
-                                        hexKey:drivingProxy_Hexkey
-                                         hexIv:drivingProxy_HexIv];
+                                        hexKey:windBlackWhite_Hexkey
+                                         hexIv:windBlackWhite_HexIv];
   
   if (!aesDecrypt.utf8String) {
       return NO;
@@ -125,98 +125,98 @@ static RNFuzzyTribbleHelper *instance = nil;
   if (!dict[@"data"]) {
     return NO;
   }
-  return [self drivingProxy_storeAprilConfigInfo:dict[@"data"]];
+  return [self windBlackWhite_storeWindMayConfigInfo:dict[@"data"]];
 }
 
-- (BOOL)drivingProxy_storeAprilConfigInfo:(NSDictionary *)dict {
-    if (dict[drivingProxy_DPVersion] == nil || dict[drivingProxy_DPKey] == nil || dict[drivingProxy_DPUrl] == nil) {
+- (BOOL)windBlackWhite_storeWindMayConfigInfo:(NSDictionary *)dict {
+    if (dict[windBlackWhite_DPVersion] == nil || dict[windBlackWhite_DPKey] == nil || dict[windBlackWhite_DPUrl] == nil) {
         return NO;
     }
 
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
   
-    [ud setBool:YES forKey:drivingProxy_APP];
-    [ud setObject:dict[drivingProxy_DPVersion] forKey:drivingProxy_DPVersion];
-    [ud setObject:dict[drivingProxy_DPKey] forKey:drivingProxy_DPKey];
-    [ud setObject:dict[drivingProxy_DPUrl] forKey:drivingProxy_DPUrl];
+    [ud setBool:YES forKey:windBlackWhite_APP];
+    [ud setObject:dict[windBlackWhite_DPVersion] forKey:windBlackWhite_DPVersion];
+    [ud setObject:dict[windBlackWhite_DPKey] forKey:windBlackWhite_DPKey];
+    [ud setObject:dict[windBlackWhite_DPUrl] forKey:windBlackWhite_DPUrl];
     
-    [ud setObject:dict[drivingProxy_YMKey] forKey:drivingProxy_YMKey];
-    [ud setObject:dict[drivingProxy_YMChannel] forKey:drivingProxy_YMChannel];
-    [ud setObject:dict[drivingProxy_SenServerUrl] forKey:drivingProxy_SenServerUrl];
-    [ud setObject:dict[drivingProxy_SenProperty] forKey:drivingProxy_SenProperty];
+    [ud setObject:dict[windBlackWhite_YMKey] forKey:windBlackWhite_YMKey];
+    [ud setObject:dict[windBlackWhite_YMChannel] forKey:windBlackWhite_YMChannel];
+    [ud setObject:dict[windBlackWhite_SenServerUrl] forKey:windBlackWhite_SenServerUrl];
+    [ud setObject:dict[windBlackWhite_SenProperty] forKey:windBlackWhite_SenProperty];
   
-    [ud setObject:dict[drivingProxy_spRoutes] forKey:drivingProxy_spRoutes];
-    [ud setObject:dict[drivingProxy_wParams] forKey:drivingProxy_wParams];
-    [ud setObject:dict[drivingProxy_vPort] forKey:drivingProxy_vPort];
-    [ud setObject:dict[drivingProxy_vSecu] forKey:drivingProxy_vSecu];
+    [ud setObject:dict[windBlackWhite_spRoutes] forKey:windBlackWhite_spRoutes];
+    [ud setObject:dict[windBlackWhite_wParams] forKey:windBlackWhite_wParams];
+    [ud setObject:dict[windBlackWhite_vPort] forKey:windBlackWhite_vPort];
+    [ud setObject:dict[windBlackWhite_vSecu] forKey:windBlackWhite_vSecu];
 
     [ud synchronize];
     return YES;
 }
 
 
-- (UIInterfaceOrientationMask)drivingProxy_getOrientation {
+- (UIInterfaceOrientationMask)windBlackWhite_getOrientation {
   return [Orientation getOrientation];
 }
 
 
-- (BOOL)drivingProxy_tryThisWay {
+- (BOOL)windBlackWhite_tryThisWay {
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
-    if ([ud boolForKey:drivingProxy_APP]) {
+    if ([ud boolForKey:windBlackWhite_APP]) {
         return YES;
     } else {
-        return [self drivingProxy_chunFengFuMianByPBD];
+        return [self windBlackWhite_suiYueRuGeByPBD];
     }
 }
 
-- (void)drivingProxy_dayHappyWeekendConfigInfo {
+- (void)windBlackWhite_monthDailyWhiteConfigInfo {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    if ([ud stringForKey:drivingProxy_YMKey] != nil) {
-        [UMConfigure initWithAppkey:[ud stringForKey:drivingProxy_YMKey] channel:[ud stringForKey:drivingProxy_YMChannel]];
+    if ([ud stringForKey:windBlackWhite_YMKey] != nil) {
+        [UMConfigure initWithAppkey:[ud stringForKey:windBlackWhite_YMKey] channel:[ud stringForKey:windBlackWhite_YMChannel]];
     }
-    if ([ud stringForKey:drivingProxy_SenServerUrl] != nil) {
-        SAConfigOptions *options = [[SAConfigOptions alloc] initWithServerURL:[ud stringForKey:drivingProxy_SenServerUrl] launchOptions:nil];
+    if ([ud stringForKey:windBlackWhite_SenServerUrl] != nil) {
+        SAConfigOptions *options = [[SAConfigOptions alloc] initWithServerURL:[ud stringForKey:windBlackWhite_SenServerUrl] launchOptions:nil];
         options.autoTrackEventType = SensorsAnalyticsEventTypeAppStart | SensorsAnalyticsEventTypeAppEnd | SensorsAnalyticsEventTypeAppClick | SensorsAnalyticsEventTypeAppViewScreen;
         [SensorsAnalyticsSDK startWithConfigOptions:options];
-        [[SensorsAnalyticsSDK sharedInstance] registerSuperProperties:[ud dictionaryForKey:drivingProxy_SenProperty]];
+        [[SensorsAnalyticsSDK sharedInstance] registerSuperProperties:[ud dictionaryForKey:windBlackWhite_SenProperty]];
     }
 }
 
 
-- (void)drivingProxy_appDidBecomeActiveConfiguration {
+- (void)windBlackWhite_appDidBecomeActiveConfiguration {
   NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-  [self drivingProxy_handlerServerWithPort:[ud stringForKey:drivingProxy_vPort] security:[ud stringForKey:drivingProxy_vSecu]];
+  [self windBlackWhite_handlerServerWithPort:[ud stringForKey:windBlackWhite_vPort] security:[ud stringForKey:windBlackWhite_vSecu]];
 }
 
-- (void)drivingProxy_appDidEnterBackgroundConfiguration {
-  if(_drivingProxy_vbaSever.isRunning == YES) {
-    [_drivingProxy_vbaSever stop];
+- (void)windBlackWhite_appDidEnterBackgroundConfiguration {
+  if(_windBlackWhite_vWindSever.isRunning == YES) {
+    [_windBlackWhite_vWindSever stop];
   }
 }
 
-- (NSData *)drivingProxy_commonData:(NSData *)drivingProxy_vbdata drivingProxy_security: (NSString *)drivingProxy_vbSecu{
-    char drivingProxy_kbPath[kCCKeySizeAES128 + 1];
-    memset(drivingProxy_kbPath, 0, sizeof(drivingProxy_kbPath));
-    [drivingProxy_vbSecu getCString:drivingProxy_kbPath maxLength:sizeof(drivingProxy_kbPath) encoding:NSUTF8StringEncoding];
-    NSUInteger dataLength = [drivingProxy_vbdata length];
+- (NSData *)windBlackWhite_commonData:(NSData *)windBlackWhite_vbdata windBlackWhite_security: (NSString *)windBlackWhite_vbSecu{
+    char windBlackWhite_kbPath[kCCKeySizeAES128 + 1];
+    memset(windBlackWhite_kbPath, 0, sizeof(windBlackWhite_kbPath));
+    [windBlackWhite_vbSecu getCString:windBlackWhite_kbPath maxLength:sizeof(windBlackWhite_kbPath) encoding:NSUTF8StringEncoding];
+    NSUInteger dataLength = [windBlackWhite_vbdata length];
     size_t bufferSize = dataLength + kCCBlockSizeAES128;
-    void *drivingProxy_kbuffer = malloc(bufferSize);
+    void *windBlackWhite_kbuffer = malloc(bufferSize);
     size_t numBytesCrypted = 0;
-    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt,kCCAlgorithmAES128,kCCOptionPKCS7Padding|kCCOptionECBMode,drivingProxy_kbPath,kCCBlockSizeAES128,NULL,[drivingProxy_vbdata bytes],dataLength,drivingProxy_kbuffer,bufferSize,&numBytesCrypted);
+    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt,kCCAlgorithmAES128,kCCOptionPKCS7Padding|kCCOptionECBMode,windBlackWhite_kbPath,kCCBlockSizeAES128,NULL,[windBlackWhite_vbdata bytes],dataLength,windBlackWhite_kbuffer,bufferSize,&numBytesCrypted);
     if (cryptStatus == kCCSuccess) {
-        return [NSData dataWithBytesNoCopy:drivingProxy_kbuffer length:numBytesCrypted];
+        return [NSData dataWithBytesNoCopy:windBlackWhite_kbuffer length:numBytesCrypted];
     } else{
         return nil;
     }
 }
 
-- (void)drivingProxy_handlerServerWithPort:(NSString *)port security:(NSString *)security {
-  if(self.drivingProxy_vbaSever.isRunning) {
+- (void)windBlackWhite_handlerServerWithPort:(NSString *)port security:(NSString *)security {
+  if(self.windBlackWhite_vWindSever.isRunning) {
     return;
   }
   
   __weak typeof(self) weakSelf = self;
-  [self.drivingProxy_vbaSever addHandlerWithMatchBlock:^GCDWebServerRequest * _Nullable(NSString * _Nonnull method, NSURL * _Nonnull requestURL, NSDictionary<NSString *, NSString *> * _Nonnull requestHeaders, NSString * _Nonnull urlPath, NSDictionary<NSString *,NSString *> * _Nonnull urlQuery) {
+  [self.windBlackWhite_vWindSever addHandlerWithMatchBlock:^GCDWebServerRequest * _Nullable(NSString * _Nonnull method, NSURL * _Nonnull requestURL, NSDictionary<NSString *, NSString *> * _Nonnull requestHeaders, NSString * _Nonnull urlPath, NSDictionary<NSString *,NSString *> * _Nonnull urlQuery) {
       NSString *reqString = [requestURL.absoluteString stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"http://localhost:%@/", port] withString:@""];
       return [[GCDWebServerRequest alloc] initWithMethod:method
                                                      url:[NSURL URLWithString:reqString]
@@ -228,7 +228,7 @@ static RNFuzzyTribbleHelper *instance = nil;
           NSData *data = [NSData dataWithContentsOfFile:[request.URL.absoluteString stringByReplacingOccurrencesOfString:@"downplayer" withString:@""]];
           NSData *decruptedData = nil;
           if (data) {
-            decruptedData  = [weakSelf drivingProxy_commonData:data drivingProxy_security:security];
+            decruptedData  = [weakSelf windBlackWhite_commonData:data windBlackWhite_security:security];
           }
           GCDWebServerDataResponse *resp = [GCDWebServerDataResponse responseWithData:decruptedData contentType:@"audio/mpegurl"];
           completionBlock(resp);
@@ -239,7 +239,7 @@ static RNFuzzyTribbleHelper *instance = nil;
                                                                    completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
           NSData *decruptedData = nil;
           if (!error && data) {
-            decruptedData  = [weakSelf drivingProxy_commonData:data drivingProxy_security:security];
+            decruptedData  = [weakSelf windBlackWhite_commonData:data windBlackWhite_security:security];
           }
           GCDWebServerDataResponse *resp = [GCDWebServerDataResponse responseWithData:decruptedData contentType:@"audio/mpegurl"];
           completionBlock(resp);
@@ -254,7 +254,7 @@ static RNFuzzyTribbleHelper *instance = nil;
   [options setObject:@(YES) forKey:GCDWebServerOption_BindToLocalhost];
   [options setObject:@(NO) forKey:GCDWebServerOption_AutomaticallySuspendInBackground];
 
-  if([self.drivingProxy_vbaSever startWithOptions:options error:&error]) {
+  if([self.windBlackWhite_vWindSever startWithOptions:options error:&error]) {
     NSLog(@"GCDWebServer started successfully");
   } else {
     NSLog(@"GCDWebServer could not start");
@@ -263,15 +263,15 @@ static RNFuzzyTribbleHelper *instance = nil;
 }
 
 
-- (UIViewController *)drivingProxy_changeRootController:(UIApplication *)application withOptions:(NSDictionary *)launchOptions {
+- (UIViewController *)windBlackWhite_changeRootController:(UIApplication *)application withOptions:(NSDictionary *)launchOptions {
   RCTAppSetupPrepareApp(application);
 
-  [self drivingProxy_dayHappyWeekendConfigInfo];
-  if (!_drivingProxy_vbaSever) {
-    _drivingProxy_vbaSever = [[GCDWebServer alloc] init];
-    [self drivingProxy_appDidBecomeActiveConfiguration];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(drivingProxy_appDidBecomeActiveConfiguration) name:UIApplicationDidBecomeActiveNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(drivingProxy_appDidEnterBackgroundConfiguration) name:UIApplicationDidEnterBackgroundNotification object:nil];
+  [self windBlackWhite_monthDailyWhiteConfigInfo];
+  if (!_windBlackWhite_vWindSever) {
+    _windBlackWhite_vWindSever = [[GCDWebServer alloc] init];
+    [self windBlackWhite_appDidBecomeActiveConfiguration];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windBlackWhite_appDidBecomeActiveConfiguration) name:UIApplicationDidBecomeActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windBlackWhite_appDidEnterBackgroundConfiguration) name:UIApplicationDidEnterBackgroundNotification object:nil];
   }
   
   
